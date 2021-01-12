@@ -1,0 +1,12 @@
+/* Set background */
+html {
+  background-color: navy;
+}
+
+body {
+  width: 75%;
+  background-color: white;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
