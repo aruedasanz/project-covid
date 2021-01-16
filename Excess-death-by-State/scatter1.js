@@ -13,7 +13,7 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv", function(data) {
+d3.csv("../code/total.csv", function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()
@@ -40,3 +40,4 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
       .attr("cy", function (d) { return y(d.SalePrice); } )
       .attr("r", 1.5)
       .style("fill", "#69b3a2")
+  }
