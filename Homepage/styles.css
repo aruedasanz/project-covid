@@ -20,7 +20,7 @@ img {
 
 
 /* Navbar links */
-/*.topnav a {
+.topnav a {
   float: left;
   color: #f2f2f2;
   text-align: left;
@@ -38,7 +38,7 @@ img {
 }
 
 .topnav a:hover {
-  border-bottom: 3px solid gray; */
+  border-bottom: 3px solid gray; 
 }
 
 .topnav a.active {
