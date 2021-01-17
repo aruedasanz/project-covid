@@ -58,13 +58,14 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         .attr("cy", function (d) { return y(d[varY]); } )
         .attr("r", 3)
         .style("fill", "#69b3a2");
-
+    // TODO: name dots, with state codes
     // svg.append(".dot")
     //   .data(data)
     //   .enter().append("cricle")
     //   .attr("class", "dot")
-      
     //     .text("state");
+
+    // TODO: Add line of best-fit
       })
 }
 
