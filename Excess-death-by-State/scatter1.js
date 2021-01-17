@@ -74,40 +74,100 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
 
     // TODO: Add line of best-fit
 
-    // svg.append("path")
-    //   .datum(data)
-    //   .attr("class", "line");
+    // Calculate a linear regression from the data
 
-    // function fitReg(d,varX, varY){
-    //   var x_mean = mean(d[varX])
-    //   var y_mean = mean(d[varY])
-    //   var term1 = 0
-    //   var term2 = 0
-    //   var xr = 0;
-    //   var yr = 0;
-    //   for (i = 0; i < d[varX].length; i++) {
-    //       xr = d[varX][i] - x_mean;
-    //       yr = d[varY][i] - y_mean;
-    //       term1 += xr * yr;
-    //       term2 += xr * xr;
-    //   }
+    // Takes 5 parameters:
+    // (1) Your data
+    // (2) The column of data plotted on your x-axis
+    // (3) The column of data plotted on your y-axis
+    // (4) The minimum value of your x-axis
+    // (5) The minimum value of your y-axis
 
-    //   var b1 = term1 / term2;
-    //   var b0 = y_mean - (b1 * x_mean);
-    //   yhat = [];
-    //     // fit line using coeffs
-    //     for (i = 0; i < x.length; i++) {
-    //         yhat.push(b0 + (d[varX][i] * b1));
-    //     }
-    //     var dt = [];
-    //     for (i = 0; i < d[varY].length; i++) {
-    //         dt.push({
-    //             "yhat": yhat[i],
-    //             "y": d[varY][i],
-    //             "x": d[varX][i]
-    //         })
-    //     }
-    //   }
+    // Returns an object with two points, where each point is an object with an x and y coordinate
+    // Source: https://bl.ocks.org/HarryStevens/be559bed98d662f69e68fc8a7e0ad097
+
+      function calcLinear(data, varX, varY){
+        /////////
+        //SLOPE//
+        /////////
+
+        // Let n = the number of data points
+        var n = data.length;
+
+        // Get just the points
+        var pts = [];
+        data.forEach(function(d,i){
+          var obj = {};
+          obj.x = d[x];
+          obj.y = d[y];
+          obj.mult = obj.x*obj.y;
+          pts.push(obj);
+        });
+
+        // Let a equal n times the summation of all x-values multiplied by their corresponding y-values
+        // Let b equal the sum of all x-values times the sum of all y-values
+        // Let c equal n times the sum of all squared x-values
+        // Let d equal the squared sum of all x-values
+        var sum = 0;
+        var xSum = 0;
+        var ySum = 0;
+        var sumSq = 0;
+        pts.forEach(function(pt){
+          sum = sum + pt.mult;
+          xSum = xSum + pt.varX;
+          ySum = ySum + pt.varY;
+          sumSq = sumSq + (pt.varX * pt.varY);
+        });
+        var a = sum * n;
+        var b = xSum * ySum;
+        var c = sumSq * n;
+        var d = xSum * xSum;
+
+        // Plug the values that you calculated for a, b, c, and d into the following equation to calculate the slope
+        // slope = m = (a - b) / (c - d)
+        var m = (a - b) / (c - d);
+
+        /////////////
+        //INTERCEPT//
+        /////////////
+
+        // Let e equal the sum of all y-values
+        var e = ySum;
+
+        // Let f equal the slope times the sum of all x-values
+        var f = m * xSum;
+
+        // Plug the values you have calculated for e and f into the following equation for the y-intercept
+        // y-intercept = b = (e - f) / n
+        var b = (e - f) / n;
+
+        // Print the equation below the chart
+        //document.getElementsByClassName("equation")[0].innerHTML = "y = " + m + "x + " + b;
+        //document.getElementsByClassName("equation")[1].innerHTML = "x = ( y - " + b + " ) / " + m;
+
+        // // return an object of two points
+        // // each point is an object with an x and y coordinate
+        // return {
+        //   ptA : {
+        //     x: minX,
+        //     y: m * minX + b
+        //   },
+        //   ptB : {
+        //     y: minY,
+        //     x: (minY - b) / m
+        //   }
+        // }
+      }
+
+    // see above for an explanation of the calcLinear function
+    var lg = calcLinear(dataFile, varX, varY);
+
+    svg.append("line")
+        .attr("class", "regression")
+        .attr("x1", x(lg[varX]))
+        .attr("y1", y(lg[varY]))
+        .attr("x2", x(lg[varX]))
+        .attr("y2", y(lg[varY]));
     })
 }
 
