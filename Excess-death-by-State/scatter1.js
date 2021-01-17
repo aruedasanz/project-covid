@@ -86,7 +86,7 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
     // Returns an object with two points, where each point is an object with an x and y coordinate
     // Source: https://bl.ocks.org/HarryStevens/be559bed98d662f69e68fc8a7e0ad097
 
-      function calcLinear(data, varX, varY){
+      function calcLinear(data, x, y, minX, minY){
         /////////
         //SLOPE//
         /////////
@@ -147,20 +147,22 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
 
         // // return an object of two points
         // // each point is an object with an x and y coordinate
-        // return {
-        //   ptA : {
-        //     x: minX,
-        //     y: m * minX + b
-        //   },
-        //   ptB : {
-        //     y: minY,
-        //     x: (minY - b) / m
-        //   }
-        // }
+        return {
+          ptA : {
+            x: minX,
+            y: m * minX + b
+          },
+          ptB : {
+            y: minY,
+            x: (minY - b) / m
+          }
+        }
       }
 
     // see above for an explanation of the calcLinear function
-    var lg = calcLinear(dataFile, varX, varY);
+    var lg = calcLinear(data, varX, varY, d3.min(data, function(d){ return d[varX]}), d3.min(data, function(d){ return d[varX]}));
+
+    // var lg = calcLinear(data, "x", "y", d3.min(data, function(d){ return d.x}), d3.min(data, function(d){ return d.x}));
 
     svg.append("line")
         .attr("class", "regression")
