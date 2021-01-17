@@ -1,0 +1,107 @@
+/* Set background */
+html {
+  background-color: white;
+  width: 100%;
+  font-family: Georgia, sans-serif;
+
+}
+
+/*set body of the site */
+body {
+  width: 100%;
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height:auto;
+}
+
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: left;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+  position: relative;
+  width: auto;
+  z-index: 100;
+  top: 50px;
+  padding-left: 12px;
+  padding-bottom: 15px;
+  padding: 12px;
+  margin-top: -45px;
+}
+
+.topnav a:hover {
+  border-bottom: 3px solid gray; 
+}
+
+.topnav a.active {
+  border-bottom: 3px solid gray; 
+}
+
+.topnavother a {
+  float: left;
+  color: #009092;
+  text-align: left;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+  position: relative;
+  width: auto;
+  z-index: 100;
+  top: 37px;
+  padding-left: 12px;
+  padding-bottom: 10px;
+  padding: 12px;
+  margin-top: -45px;
+  clear: none;
+}
+
+*.topnavother a:hover {
+  border-bottom: 3px solid gray;*
+}
+
+.topnavother a.active {
+  border-bottom: 3px solid gray;
+}
+
+.iconDetails {
+  float: left; 
+  height:180px;
+  width:180px;
+  margin-left: -230px;
+  padding: 1%;
+  margin-top: -10px;
+} 
+
+/*footer*/
+
+.footerbar {
+  width: 100% !important;  
+  max-width: 100% !important;
+  min-width: 100% !important;
+  text-align: center;
+  background-color: #007c7d !important; 
+  color:white;
+  opacity: .7;
+  position: absolute;
+  z-index:100;
+  left: 0;
+  height: 55px;
+}
+
+/*paragraph spacing*/
+
+.space
+{
+  padding-top: 40px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-left: 80px;
+}
