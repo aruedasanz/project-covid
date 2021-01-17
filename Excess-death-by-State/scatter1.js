@@ -161,7 +161,7 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
       }
 
     // see above for an explanation of the calcLinear function
-    var lg = calcLinear(data, varX, varY, d3.min(data, function(d){ return d[varX]}), d3.min(data, function(d){ return d[varX]}), cssSelector);
+    var lg = calcLinear(data, varX, varY, d3.min(data, function(d){ return d[varX]}), d3.min(data, function(d){ return d[varY]}), cssSelector);
 
     svg.append("line")
         .attr("class", "regression")
