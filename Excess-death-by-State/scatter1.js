@@ -58,17 +58,72 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         .attr("cy", function (d) { return y(d[varY]); } )
         .attr("r", 3)
         .style("fill", "#69b3a2");
-    // TODO: name dots, with state codes
-    // svg.append(".dot")
-    //   .data(data)
-    //   .enter().append("cricle")
-    //   .attr("class", "dot")
-    //     .text("state");
+
+    // Name dots, with state names
+    svg.selectAll("dot")
+      .data(data)
+      .enter()
+      // .attr("transform", "translate (0,5)")
+      // .attr("class", "state")
+      // .attr("x", function(d){
+      //   return xScale(highX - d[varX]) + 5;
+      // }) .attr("y", function(d){
+      //   return yScale(d[varY]);
+      // }) .text(function(d){
+      //   return d.state
+      // });
+      .append("text")
+        .attr("class", "label")
+        .attr('font-size', '10px')
+        .attr('font-family', 'sans-serif')
+        .attr('text-anchor', 'end')
+        .attr('x', width)
+        .attr('y', 6)
+        .text(d =>`${d.state}`)
+        .attr("label", d = 5);
 
     // TODO: Add line of best-fit
-      })
+    svg.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("d", line);
+
+    function fitReg(d,varX, varY){
+      var x_mean = mean(d[varX])
+      var y_mean = mean(d[varY])
+      var term1 = 0
+      var term2 = 0
+
+      var xr = 0;
+      var yr = 0;
+      for (i = 0; i < d[varX].length; i++) {
+          xr = d[varX][i] - x_mean;
+          yr = d[varY][i] - y_mean;
+          term1 += xr * yr;
+          term2 += xr * xr;
+      }
+
+      var b1 = term1 / term2;
+      var b0 = y_mean - (b1 * x_mean);
+
+      yhat = [];
+        // fit line using coeffs
+        for (i = 0; i < x.length; i++) {
+            yhat.push(b0 + (d[varX][i] * b1));
+        }
+
+        var dt = [];
+        for (i = 0; i < d[varY].length; i++) {
+            dt.push({
+                "yhat": yhat[i],
+                "y": d[varY][i],
+                "x": d[varX][i]
+            })
+        }
+      }
+    })
 }
 
-drawScatterPlot("code/total.csv", "#scatter1", "excess_deaths_per_100k_wa", "Stringency", -0.5, 7, 20, 70, "Oxford Stringency Index", 0)
+drawScatterPlot("code/total.csv", "#scatter1", "excess_deaths_per_100k_wa", "Stringency", -0.5, 7, 20, 80, "Oxford Stringency Index", 0)
 drawScatterPlot("code/total.csv", "#scatter2", "excess_deaths_per_100k_wa", "Per_capita_Real_GDP", -0.5, 7, 10000, 200000, "Real GDP pc", 3)
 drawScatterPlot("code/total.csv", "#scatter3", "excess_deaths_per_100k_wa", "Mobility_a", -0.5, 7, -60, 0, "Google's Change in Mobility Index", 0)
