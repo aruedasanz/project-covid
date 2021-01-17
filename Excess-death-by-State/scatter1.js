@@ -73,17 +73,16 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         .text(d =>`${d.state}`);
 
     // TODO: Add line of best-fit
+
     // svg.append("path")
     //   .datum(data)
-    //   .attr("class", "line")
-    //   .attr("d", line);
+    //   .attr("class", "line");
 
     // function fitReg(d,varX, varY){
     //   var x_mean = mean(d[varX])
     //   var y_mean = mean(d[varY])
     //   var term1 = 0
     //   var term2 = 0
-
     //   var xr = 0;
     //   var yr = 0;
     //   for (i = 0; i < d[varX].length; i++) {
@@ -95,13 +94,11 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
 
     //   var b1 = term1 / term2;
     //   var b0 = y_mean - (b1 * x_mean);
-
     //   yhat = [];
     //     // fit line using coeffs
     //     for (i = 0; i < x.length; i++) {
     //         yhat.push(b0 + (d[varX][i] * b1));
     //     }
-
     //     var dt = [];
     //     for (i = 0; i < d[varY].length; i++) {
     //         dt.push({
