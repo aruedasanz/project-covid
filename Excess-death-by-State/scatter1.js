@@ -86,7 +86,7 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
     // Returns an object with two points, where each point is an object with an x and y coordinate
     // Source: https://bl.ocks.org/HarryStevens/be559bed98d662f69e68fc8a7e0ad097
 
-      function calcLinear(data, x, y, minX, minY){
+      function calcLinear(data, x, y, minX, minY, cssSelector){
         /////////
         //SLOPE//
         /////////
@@ -98,9 +98,9 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         var pts = [];
         data.forEach(function(d,i){
           var obj = {};
-          obj.x = d[x];
-          obj.y = d[y];
-          obj.mult = obj.x*obj.y;
+          obj.varX = d[x];
+          obj.varY = d[y];
+          obj.mult = obj.varX*obj.varY;
           pts.push(obj);
         });
 
@@ -113,15 +113,16 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         var ySum = 0;
         var sumSq = 0;
         pts.forEach(function(pt){
-          sum = sum + pt.mult;
-          xSum = xSum + pt.varX;
-          ySum = ySum + pt.varY;
-          sumSq = sumSq + (pt.varX * pt.varY);
+          sum = sum + parseFloat(pt.mult);
+          xSum = xSum + parseFloat(pt.varX);
+          ySum = ySum + parseFloat(pt.varY);
+          sumSq = sumSq + (parseFloat(pt.varX) * parseFloat(pt.varY));
         });
         var a = sum * n;
         var b = xSum * ySum;
         var c = sumSq * n;
         var d = xSum * xSum;
+
 
         // Plug the values that you calculated for a, b, c, and d into the following equation to calculate the slope
         // slope = m = (a - b) / (c - d)
@@ -142,8 +143,8 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         var b = (e - f) / n;
 
         // Print the equation below the chart
-        //document.getElementsByClassName("equation")[0].innerHTML = "y = " + m + "x + " + b;
-        //document.getElementsByClassName("equation")[1].innerHTML = "x = ( y - " + b + " ) / " + m;
+        document.querySelectorAll(cssSelector + " .equation")[0].innerHTML = "y = " + m + "x + " + b;
+        document.querySelectorAll(cssSelector + " .equation")[1].innerHTML = "x = ( y - " + b + " ) / " + m;
 
         // // return an object of two points
         // // each point is an object with an x and y coordinate
@@ -160,16 +161,15 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
       }
 
     // see above for an explanation of the calcLinear function
-    var lg = calcLinear(data, varX, varY, d3.min(data, function(d){ return d[varX]}), d3.min(data, function(d){ return d[varX]}));
-
-    // var lg = calcLinear(data, "x", "y", d3.min(data, function(d){ return d.x}), d3.min(data, function(d){ return d.x}));
+    var lg = calcLinear(data, varX, varY, d3.min(data, function(d){ return d[varX]}), d3.min(data, function(d){ return d[varX]}), cssSelector);
 
     svg.append("line")
         .attr("class", "regression")
-        .attr("x1", x(lg[varX]))
-        .attr("y1", y(lg[varY]))
-        .attr("x2", x(lg[varX]))
-        .attr("y2", y(lg[varY]));
+        .attr("x1", x(lg.ptA.x))
+        .attr("y1", y(lg.ptA.y))
+        .attr("x2", x(lg.ptB.x))
+        .attr("y2", y(lg.ptB.y));
+
     })
 }
 
