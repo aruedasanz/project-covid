@@ -60,7 +60,7 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         .style("fill", "#69b3a2");
 
     // Name dots, with state names
-    svg.selectAll("dot")
+    svg.selectAll("text")
       .data(data)
       .enter()
       // .attr("transform", "translate (0,5)")
@@ -77,50 +77,49 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         .attr('font-size', '10px')
         .attr('font-family', 'sans-serif')
         .attr('text-anchor', 'end')
-        .attr('x', width)
-        .attr('y', 6)
-        .text(d =>`${d.state}`)
-        .attr("label", d = 5);
+        .attr("x", function (d) { return x(d[varX]); } )
+        .attr("y", function (d) { return y(d[varY]); } )
+        .text(d =>`${d.state}`);
 
     // TODO: Add line of best-fit
-    svg.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("d", line);
+    // svg.append("path")
+    //   .datum(data)
+    //   .attr("class", "line")
+    //   .attr("d", line);
 
-    function fitReg(d,varX, varY){
-      var x_mean = mean(d[varX])
-      var y_mean = mean(d[varY])
-      var term1 = 0
-      var term2 = 0
+    // function fitReg(d,varX, varY){
+    //   var x_mean = mean(d[varX])
+    //   var y_mean = mean(d[varY])
+    //   var term1 = 0
+    //   var term2 = 0
 
-      var xr = 0;
-      var yr = 0;
-      for (i = 0; i < d[varX].length; i++) {
-          xr = d[varX][i] - x_mean;
-          yr = d[varY][i] - y_mean;
-          term1 += xr * yr;
-          term2 += xr * xr;
-      }
+    //   var xr = 0;
+    //   var yr = 0;
+    //   for (i = 0; i < d[varX].length; i++) {
+    //       xr = d[varX][i] - x_mean;
+    //       yr = d[varY][i] - y_mean;
+    //       term1 += xr * yr;
+    //       term2 += xr * xr;
+    //   }
 
-      var b1 = term1 / term2;
-      var b0 = y_mean - (b1 * x_mean);
+    //   var b1 = term1 / term2;
+    //   var b0 = y_mean - (b1 * x_mean);
 
-      yhat = [];
-        // fit line using coeffs
-        for (i = 0; i < x.length; i++) {
-            yhat.push(b0 + (d[varX][i] * b1));
-        }
+    //   yhat = [];
+    //     // fit line using coeffs
+    //     for (i = 0; i < x.length; i++) {
+    //         yhat.push(b0 + (d[varX][i] * b1));
+    //     }
 
-        var dt = [];
-        for (i = 0; i < d[varY].length; i++) {
-            dt.push({
-                "yhat": yhat[i],
-                "y": d[varY][i],
-                "x": d[varX][i]
-            })
-        }
-      }
+    //     var dt = [];
+    //     for (i = 0; i < d[varY].length; i++) {
+    //         dt.push({
+    //             "yhat": yhat[i],
+    //             "y": d[varY][i],
+    //             "x": d[varX][i]
+    //         })
+    //     }
+    //   }
     })
 }
 
