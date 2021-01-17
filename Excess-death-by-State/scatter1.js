@@ -60,18 +60,9 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         .style("fill", "#69b3a2");
 
     // Name dots, with state names
-    svg.selectAll("text")
+    svg.selectAll("dot")
       .data(data)
       .enter()
-      // .attr("transform", "translate (0,5)")
-      // .attr("class", "state")
-      // .attr("x", function(d){
-      //   return xScale(highX - d[varX]) + 5;
-      // }) .attr("y", function(d){
-      //   return yScale(d[varY]);
-      // }) .text(function(d){
-      //   return d.state
-      // });
       .append("text")
         .attr("class", "label")
         .attr('font-size', '10px')
