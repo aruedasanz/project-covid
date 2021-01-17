@@ -49,13 +49,18 @@ write.csv(oxford_s,"oxford.csv", row.names = F)
 
 excess <-read.csv("https://raw.githubusercontent.com/TheEconomist/covid-19-excess-deaths-tracker/master/output-data/excess-deaths/united_states_excess_deaths.csv")
 
-excess_s <- excess [ -c(1, 3:6, 8, 13:14, 16)]
+excess_s <- excess [ -c(1, 4:6, 8, 13:14, 16)]
 
 excess_s <- excess_s %>%
   filter(excess_s$week >= 11)
 
 excess_s <- excess_s %>%
   filter(excess_s$region != "New York City")
+
+excess_s_ny <- excess_s %>%
+  filter(excess_s$region == "New York")
+
+excess_s_ny <- excess_s_ny [ -c(1,2, 4, 6, 8)]
 
 excess_s_wa <- excess_s %>%
   group_by(region) %>%
@@ -65,7 +70,7 @@ excess_s_wa <- excess_s %>%
   mutate(expected_deaths_wa = mean(expected_deaths, na.rm = TRUE)) %>%
   mutate(excess_deaths_wa = mean(excess_deaths, na.rm = TRUE))
 
-excess_s_wa <- excess_s_wa [ -c(2:7)]
+excess_s_wa <- excess_s_wa [ -c(3:8)]
 
 excess_s_wa <- excess_s_wa[!duplicated(excess_s_wa$region), ]
 
@@ -73,7 +78,7 @@ excess_s_wa <- excess_s_wa[order(-excess_s_wa$excess_deaths_per_100k_wa),]
 
 excess_s_wa <- rename.variable(excess_s_wa, "region", "state")
 
-top <- excess_s_wa [ -c(3:6)]
+top <- excess_s_wa [ -c(2,4:7)]
 
 bottom <- top[43:52,]
 
@@ -85,11 +90,13 @@ write.csv(top,"top.csv", row.names = FALSE)
 
 write.csv(excess_s_wa,"excess_wa.csv", row.names = FALSE)
 
+write.csv(excess_s_wa,"excess_wa.csv", row.names = FALSE)
+
+write.csv(excess_s_ny,"excess_ny.csv", row.names = FALSE)
+
 # Retrieve Google Mobility  Data ------
 
 mobility <-read.csv("2020_US_Region_Mobility_Report.csv", fill=TRUE)
-
-mobility <-mobility [ -c(1:2, 4:7, 10:11, 14)]
 
 mobility <- mobility %>%
   filter(mobility$sub_region_1 != "")
@@ -124,9 +131,13 @@ gdp <-read.csv("gdp.csv", fill=TRUE)
 
 density <-read.csv("density.csv", fill=TRUE)
 
-density <- read_excel("density 2.xlsx")
+# Retrieve Race  Data ------
 
-write.csv(density,"density.csv", row.names = FALSE)
+race <-read.csv("race.csv", fill=TRUE)
+
+# Retrieve Party  Data ------
+
+party <-read.csv("party.csv", fill=TRUE)
 
 # Merging data frames ------
 
@@ -137,6 +148,11 @@ total <- merge(total, mobility, by=c("state"))
 total <- merge(total, density, by=c("state"))
 
 total <- merge(total, gdp, by=c("state"))
+
+total <- merge(total, party, by=c("state"))
+
+total <- merge(total, race, by=c("state"))
+
 
 total <- total[order(-total$excess_deaths_per_100k_wa),]
 
