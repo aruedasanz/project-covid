@@ -21,6 +21,8 @@
 
         <p><b>How to read the graph:</b> The graph below shows the association between the <i>average</i> level of stringency in state policies since march 2020 and the <i>average</i>  weekly excess deaths per 100k. The relationship between the variables observed negative (albeit weakly ash shown by the trendline). The graph shows that states like the Dakotas (ND & SD) had the least stringent policies in the US and some of the highest levels of weekly excess deaths per 100K people. In contrast, Hawaii, Maine and North Carolina had comparatively more stringent policies and lower excess mortality.</p>
 
+         <p>*The District of Columbia was excluded from this chart as the city data doesn't compare to the state-level data. A more accurate comparison would be to other cities.</p>
+
         <!-- Create a div where the graph will take place -->
         <h4 style="text-align:center">A higher level of stringency in pandemic response policies is weakly associated with lower average weekly excess deaths</h4>
         <h7 style="text-align:center"><i>Average weekly Excess Deaths vs. Stringency Index (Avg. for 2020)</i></h7>
@@ -52,13 +54,14 @@
 
         <p><b>How to read the graph:</b> The graph below shows the association between population density and the <i>average</i> weekly excess deaths per 100k since the start of the pandemic. In the chart, states like New Jersey, Rhode Island, Massachusetts, with relatively higher population densities, have higher average weekly excess mortality than more rural states like Arkansas and Wyoming. On the other hand, rural states like the Dakotas (SD & ND) and Mississippi have lower population densities but higher excess deaths.</p> 
 
+        <p>*The District of Columbia was excluded from this chart as the city data doesn't compare to the state-level data. A more accurate comparison would be to other cities.</p>
+
         <!-- Create a div where the graph will take place -->
         <h4 style="text-align:center">Some states with low population density have similar levels of excess deaths than urban states</h4>
-        <h7 style="text-align:center"><i>Average weekly Excess Deaths vs. Population density(people/sq mile), excludes DC*</i></h7>
+        <h7 style="text-align:center"><i>Average weekly Excess Deaths vs. Population density(people/sq mile)</i></h7>
         <div id="scatter4">
         </div>
         <p> Source: <a href ="https://raw.githubusercontent.com/TheEconomist/covid-19-excess-deaths-tracker/master/output-data/excess-deaths/united_states_excess_deaths.csv">The Economist</a> & US Census Bureau, Visualization: <a href ="https://www.d3-graph-gallery.com/graph/scatter_basic.html">D3</a></p>
-        <p>*The District of Columbia was excluded from this chart as it was an outlier in population density because of its exclusively urban geography.</p>
 
         <!-- Load d3.js -->
         <script src="https://d3js.org/d3.v4.js"></script>
