@@ -18,7 +18,9 @@
         <p>Now lets check some variables associated with the differences in Excess Deaths across states.</p>
 
         <h1 style="text-align:center"> <br>Excess Deaths and Strictness of Measures (Stringency Index)</h1>
-        <p>Oxford COVID-19 Government Response Tracker aims to track and compare worldwide government responses to the coronavirus rigorously and consistently. They collect information on common policy responses, scores the stringency of such measures, and aggregate them into a COVID-19 Government Response Stringency Index. This composite measure is a simple additive score of the seven indicators (S1-S7) measured on an ordinal scale, rescaled to vary from 0 to 100. This measure is for comparative purposes only and should not be interpreted as a rating of the appropriateness or effectiveness of a country's response. More information about the index can be found here https://covidtracker.bsg.ox.ac.uk/</p>
+        <p>Oxford's COVID-19 Government Response Tracker aims to <b>track and compare worldwide government responses to the coronavirus with a comparable metric</b>. The index collects information on common policy responses and score the stringency of each measure through a comparison to normal times. The scores compount into an overall COVID-19 Government Response Stringency Index.</p> 
+
+        <p>This composite measure is a simple additive score of the seven indicators, rescaled to 0 to 100. A score of 0 would be policies in normal times and 100 is the highest level of restrictions. <b>This measure is for comparative purposes only and should not be interpreted as a rating of the appropriateness or effectiveness of a country's response</b>. More information about the index can be found here https://covidtracker.bsg.ox.ac.uk/</p>
 
         <!-- Create a div where the graph will take place -->
         <div id="scatter1">
@@ -26,23 +28,24 @@
           <div class="equation">a</div>
         </div>
 
-        <h1 style="text-align:center"> <br>Excess Deaths and Income (GDP per capita)</h1>
+        <!-- We exclude the correlations with GDP pc, and Google Mobility Index because they weren't statistically significant or clear.  -->
+        <!--         <h1 style="text-align:center"> <br>Excess Deaths and Income (GDP per capita)</h1>
+                <p>Add description of correlation</p>
+
+                Create a div where the graph will take place
+                <div id="scatter2">
+                  <div class="equation">b</div>
+                  <div class="equation">b</div>
+                </div> -->
+
+        <!-- <h1 style="text-align:center"> <br>Excess Deaths and Mobility</h1>
         <p>Add description of correlation</p>
 
-        <!-- Create a div where the graph will take place -->
-        <div id="scatter2">
-          <div class="equation">b</div>
-          <div class="equation">b</div>
-        </div>
-
-        <h1 style="text-align:center"> <br>Excess Deaths and Mobility</h1>
-        <p>Add description of correlation</p>
-
-        <!-- Create a div where the graph will take place -->
+        Create a div where the graph will take place
         <div id="scatter3">
           <div class="equation">b</div>
           <div class="equation">b</div>
-        </div>
+        </div> -->
 
         <h1 style="text-align:center"> <br>Excess Deaths and Population Density</h1>
         <p>Add description of correlation</p>
@@ -65,5 +68,5 @@
     <div class="footerbar">
         <h6>This webpage was developed by Harvard Kennedy School students for DPI-691M: Programming and Data for Policymakers.</h6>
     </div>
-    
+
     </html>
