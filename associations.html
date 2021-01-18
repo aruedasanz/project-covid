@@ -53,16 +53,17 @@
         <h1 style="text-align:center"> <br>Excess Deaths and Population Density</h1>
         <p>Since SARS-CoV2 (the virus that causes COVID-19) is an airborne disease, a state with a greater population density (people per squared mile) is more likely to increase excess deaths because crowded spaces increase transmission, hospitals become overcrowded faster. Thus, more urban states are more likely to have a higher level of excess deaths than more rural states. The source of population density data by state is the US Census bureau.</p>
 
-        <p><b>How to read the graph:</b> The graph below shows the association between population density and the <i>average</i> weekly excess deaths per 100k since the start of the pandemic. In the chart, states like New Jersey, Rhode Island, Massachusetts, with relatively higher population densities, have higher average weekly excess mortality than more rural states like Arkansas and Wyoming. The District of Columbia was excluded from this chart as it was an outlier in population density because of its exclusively urban geography. On the other hand, rural states like the Dakotas (SD & ND) and Mississippi have lower population densities but higher excess deaths.</p> 
+        <p><b>How to read the graph:</b> The graph below shows the association between population density and the <i>average</i> weekly excess deaths per 100k since the start of the pandemic. In the chart, states like New Jersey, Rhode Island, Massachusetts, with relatively higher population densities, have higher average weekly excess mortality than more rural states like Arkansas and Wyoming. On the other hand, rural states like the Dakotas (SD & ND) and Mississippi have lower population densities but higher excess deaths.</p> 
 
         <!-- Create a div where the graph will take place -->
         <h4 style="text-align:center">Some states with low population density have similar levels of excess deaths than urban states</h4>
-        <h7 style="text-align:center"><i>Average weekly Excess Deaths vs. Population density(people/sq mile)</i></h7>
+        <h7 style="text-align:center"><i>Average weekly Excess Deaths vs. Population density(people/sq mile), excludes DC*</i></h7>
         <div id="scatter4">
           <div class="equation">b</div>
           <div class="equation">b</div>
         </div>
         <p> Source: The Economist & US Census Bureau</p>
+        <p>*The District of Columbia was excluded from this chart as it was an outlier in population density because of its exclusively urban geography.</p>
 
         <!-- Load d3.js -->
         <script src="https://d3js.org/d3.v4.js"></script>
