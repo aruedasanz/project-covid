@@ -116,7 +116,7 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
           sum = sum + parseFloat(pt.mult);
           xSum = xSum + parseFloat(pt.varX);
           ySum = ySum + parseFloat(pt.varY);
-          sumSq = sumSq + (parseFloat(pt.varX) * parseFloat(pt.varY));
+          sumSq = sumSq + (parseFloat(pt.varX) * parseFloat(pt.varX));
         });
         var a = sum * n;
         var b = xSum * ySum;
