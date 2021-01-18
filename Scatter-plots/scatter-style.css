@@ -1,10 +1,5 @@
 	.regression {
 	  stroke-width: 2px;
 	  stroke: steelblue;
-	  stroke-dasharray: 10,5;
-	}
-	.equation {
-		font-size: 12px;
-		margin-top: 10px;
-		text-align: center;
+	  stroke-dasharray: 10;
 	}

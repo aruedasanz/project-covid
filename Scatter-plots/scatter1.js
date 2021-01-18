@@ -143,15 +143,13 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         var b = (e - f) / n;
 
         // Print the equation below the chart
-        document.querySelectorAll(cssSelector + " .equation")[0].innerHTML = "y = " + m + "x + " + b;
-        document.querySelectorAll(cssSelector + " .equation")[1].innerHTML = "x = ( y - " + b + " ) / " + m;
 
         // // return an object of two points
         // // each point is an object with an x and y coordinate
         return {
           ptA : {
             x: minX,
-            y: m * minX + b
+            y: (m * minX) + b
           },
           ptB : {
             y: minY,
@@ -173,7 +171,7 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
     })
 }
 
-drawScatterPlot("code-and-data/total.csv", "#scatter1", "excess_deaths_per_100k_wa", "Stringency", -0.5, 7, 20, 80, "Oxford Stringency Index", 0)
+drawScatterPlot("code-and-data/total.csv", "#scatter1", "excess_deaths_per_100k_wa", "Stringency", -1, 7, 20, 80, "Oxford Stringency Index", 0)
 // drawScatterPlot("code-and-data/total.csv", "#scatter2", "excess_deaths_per_100k_wa", "Per_capita_Real_GDP", -0.5, 7, 10000, 200000, "Real GDP pc", 3)
 // drawScatterPlot("code-and-data/total.csv", "#scatter3", "excess_deaths_per_100k_wa", "Mobility_a", -0.5, 7, -60, 0, "Google's Change in Mobility Index", 0)
-drawScatterPlot("code-and-data/total.csv", "#scatter4", "excess_deaths_per_100k_wa", "Density", -1, 7, 0, 1600, "Population Density per Mile Sq", 0)
+drawScatterPlot("code-and-data/total.csv", "#scatter4", "excess_deaths_per_100k_wa", "Density", -1, 7, 0, 1600, "Population Density per Sq Mile", 0)
