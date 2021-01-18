@@ -70,7 +70,7 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         .attr('text-anchor', 'end')
         .attr("x", function (d) { return x(d[varX]); } )
         .attr("y", function (d) { return y(d[varY]); } )
-        .text(d =>`${d.state}`);
+        .text(d =>`${d.region_code}`);
 
     // TODO: Add line of best-fit
 
@@ -176,3 +176,4 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
 drawScatterPlot("code/total.csv", "#scatter1", "excess_deaths_per_100k_wa", "Stringency", -0.5, 7, 20, 80, "Oxford Stringency Index", 0)
 drawScatterPlot("code/total.csv", "#scatter2", "excess_deaths_per_100k_wa", "Per_capita_Real_GDP", -0.5, 7, 10000, 200000, "Real GDP pc", 3)
 drawScatterPlot("code/total.csv", "#scatter3", "excess_deaths_per_100k_wa", "Mobility_a", -0.5, 7, -60, 0, "Google's Change in Mobility Index", 0)
+drawScatterPlot("code/total.csv", "#scatter4", "excess_deaths_per_100k_wa", "Density", -0.5, 7, 0, 1600, "Population Density per Mile Sq", 0)
