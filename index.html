@@ -3,34 +3,166 @@
 
     <head>
        
-    <link href="Homepage/styles.css" rel="stylesheet" type="text/css">
+    <link href="Page-styles/styles.css" rel="stylesheet" type="text/css">
     </head>
     <div class="topnavother">
         <a class="active" href='index.html'>Home</a>
-        <a href='excessM-state.html'>Excess Deaths</a>
+        <a href='associations.html'>Possible Causes</a>
         <a href='team.html'>Our Team</a>
     </div>
 
-
     <body>
+    
+         <h1 style="text-align:center"> <br>  Beyond case-counts: how can we understand the COVID-19 pandemic </h1>
+
+         <h2>What is in this site?</h2>
+         <p>This website goes beyond basic case counts to understand the behavior of COVID-19 across different states in the US. We believe that case counts and official COVID-19 deaths are useful to identify outbreaks. However, these figures fail to identify how lethal the virus is with respect to other diseases because COVID-19 case and death tolls: </p>
+         <ul>
+            <li><i><b>Don't account for non-tested individuals</b></i></li>
+            <li><i><b>Don't account for non-covid preventable deaths at overloaded hospitals</b></i></li>
+         </ul> 
+         <p> These figures confound the effectiveness of policies across different geographies. For this reason, epidemiologists analyze Excess Mortality: how much more deaths per month occured during the pandemic, compared to an average year for each state. For more information, you can click <a href="https://ourworldindata.org/excess-mortality-covid">here</a>.</p>
+
+         <h3>Navigating through this site</h3>
+         <p>Below, we provide an overview of excess death figures by state. We also show how this figure is more effective than COVID-19 cases and death tolls at explaining the health effects of the pandemic.</p>
+
+         <p>If you are feeling savvy and want to understand possible causes of the differences in excess deaths, you can go to the <a href='associations.html'>Possible causes</a> tab. There, we provide a deeper analylis of figures that are associated with excess deaths during this pandemic. We also provide some additional selected references.</p>
+
+         <h1 style="text-align:center"> <br>Excess Deaths by State </h1>
+
+         <p> Estimates of excess deaths provide information about the burden of the COVID-19 pandemic, including deaths that are directly or indirectly attributed to COVID-19.</p>
+         <ul>
+           <li>Excess deaths from COVID-19 are:<b>the difference between the observed number of deaths on a week during the pandemic and before the pandemic</b>.</li>
+         </ul>
+
+         <p>The map provides the average number of excess deaths in each state per 100 thousand people. We compare the average number of weekly deaths per 100 thousand people between the 11th week and the last week of 2020, with the average number for those weeks during 5 years prior to the pandemic.</p>
+
+         <p><u>Note: reporting deaths per 100 thousand people allows comparing between population sizes.</u> That is: it allows comparing excess mortality between a very populous and a sparsely populated state.</p>
+
+         <p>In the map, <b>states with the darkest colors have the greatest rise in deaths since the pandemic was declared</b>. Hover over the map to see the figure for each state.</p>
+
+         <p><b>Example of how to read the figures</b>: since the start of the pandemic, there have been on average more than 4 additional weekly deaths in Texas, compared to weekly deaths in the last 5 years.</p>
+
+         <iframe title="Southern, Mid-western and North-eastern States have suffered the most excess deaths" aria-label="Map" id="datawrapper-chart-shW4Q" src="https://datawrapper.dwcdn.net/shW4Q/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="581"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}}))}();
+          </script>
         
-        <h1 style="text-align:center"> <br>  Beyond case-counts: how can we understand the COVID-19 pandemic </h1>
+        <link href="Excess-death-by-State/scatter-style.css" rel="stylesheet" type="text/css"></link>
 
-        <h2>What is in this site?</h2>
-        <p>This website goes beyond basic case counts to understand the behavior of COVID-19 across different states in the US. We believe that case counts and official COVID-19 deaths are useful to identify outbreaks. However, these figures fail to identify how lethal the virus is with respect to other diseases because they: </p>
-        <ul>
-            <li>Don't account for non-tested individuals</li>
-            <li>Don't account for non-covid preventable deaths at overloaded hospitals</li>
-        </ul> 
-         <p> Thus, case and death counts confound the effectiveness of policies across different geographies. For this reason, epidemiologists analyze Excess Mortality: how much more deaths per month occured during the pandemic, compared to an average year for each state (Our World in Data, 2020).</p>
+        <p>In the map, we are calculating a weekly average for each state. This average doesn't account for different circumstances in each state. For instance, while the average excess mortality in New York is similar to North Dakota, it is worth noting the peak occurred at different months. In New York, the peak in excess deaths occurred in the first months of the pandemic, while in North Dakota, this happened later. These differences occurred because while New York is more connected to international travel, it struck earlier than in North Dakota.</p>
 
-         <h3>Navigate through the links below to explore Excess Mortality during the pandemic</h3>
-         <a href='excessM-state.html'>Excess Mortality by State</a>
-         
+        <p><b>Intuition behind excess mortality</b>: we compared excess deaths in the state of New York to those reported as caused by COVID-19.  At the peak of the pandemic, excess deaths were almost twice the reported COVID-19 deaths. The difference suggests the death toll caused by COVID-19 was far greater than the figures reported. The spread later on becomes smaller as policy reacted with: revamped testing, lockdown measures and as health facilities became less overcrowded.</p>
 
-        <h2>Who are we?</h2>
-        <p>We are a group of highly motivated policy students who believe in the power of evidence to analyze and recommend policy. In this site, we want to share this enthusiasm and give you some facts to better understand what is happening and what should be done. </p>
-        <a href='team.html'>Learn more about our team</a>
+         <iframe title="During the peak in New York, from the 12th to the 16th week of the year, excess deaths exceeded the reported Covid death toll" aria-label="chart" id="datawrapper-chart-RSD7Z" src="https://datawrapper.dwcdn.net/RSD7Z/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="900"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}}))}();
+        </script>
+
+        <h2>Top 10 US States with the Highest Excess Deaths per Capita</h2>
+
+        <p> The tables exhibit the average excess death per week normalized by 100,000 people. This allows comparing the performance of the state managing the pandemic against the rest. The states which were more adversely affected by the pandemic by this metric were the District of Columbia, North Dakota and New York. On the contrary, the states which managed better the pandemic according to this metric were West Virginia, North Carolina and Hawaii. An interesting case arises in West Virginia, which exhibits a negative coefficient, which might suggest that the casualties prevented by the decline in mobility stemming from lockdown measures actually exceeded those caused by Covid-19.</p>
+             <table>
+              <thead>
+                <tr>
+                  <th scope="col">State</th>
+                  <th scope="col">Average Excess Deaths per 100k</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>District of Columbia</td>
+                  <td>6.635</td>
+                </tr>
+                <tr>
+                  <td>North Dakota</td>
+                  <td>5.526</td>
+                </tr>
+                <tr>
+                  <td>New York</td>
+                  <td>5.419</td>
+                </tr>
+                <tr>
+                  <td>New Jersey</td>
+                  <td>5.254</td>
+                </tr>
+                <tr>
+                  <td>Mississippi</td>
+                  <td>4.721</td>
+                </tr>
+                <tr>
+                  <td>Louisiana</td>
+                  <td>4.316</td>
+                </tr>
+                <tr>
+                  <td>South Dakota</td>
+                  <td>4.250</td>
+                </tr>
+                <tr>
+                  <td>Tennessee</td>
+                  <td>4.089</td>
+                </tr>
+                <tr>
+                  <td>Missouri</td>
+                  <td>4.085</td>
+                </tr>
+                <tr>
+                  <td>Michigan</td>
+                  <td>3.870</td>
+                </tr>
+              </tbody>
+            </table>
+
+                      <h2>Bottom 10 US States with the Highest Excess Deaths per Capita</h2>
+
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">State</th>
+                  <th scope="col">Average Excess Deaths per 100k</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Vermont</td>
+                  <td>1.777</td>
+                </tr>
+                <tr>
+                  <td>Wyoming</td>
+                  <td>1.554</td>
+                </tr>
+                <tr>
+                  <td>Washington</td>
+                  <td>1.315</td>
+                </tr>
+                <tr>
+                  <td>New Hampshire</td>
+                  <td>1.300</td>
+                </tr>
+                <tr>
+                  <td>Oregon</td>
+                  <td>1.274</td>
+                </tr>
+                <tr>
+                  <td>Maine</td>
+                  <td>0.795</td>
+                </tr>
+                <tr>
+                  <td>Alaska</td>
+                  <td>0.588</td>
+                </tr>
+                <tr>
+                  <td>Hawaii</td>
+                  <td>0.486</td>
+                </tr>
+                <tr>
+                  <td>North Carolina</td>
+                  <td>0.016</td>
+                </tr>
+                <tr>
+                  <td>West Virginia</td>
+                  <td>-0.375</td>
+                </tr>
+              </tbody>
+            </table>
+
+                   <p>Source: <a href="https://raw.githubusercontent.com/TheEconomist/covid-19-excess-deaths-tracker/master/output-data/excess-deaths/united_states_excess_deaths.csv">The Economist</a>, calculated based on <a href="https://covid.cdc.gov/covid-data-tracker/#cases_casesper100klast7days">CDC.gov</p>
     </body>
 
     <div class="space"></div>

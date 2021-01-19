@@ -1,0 +1,12 @@
+.regression {
+  stroke-width: 2px;
+  stroke: steelblue;
+  stroke-dasharray: 10;
+}
+
+.chart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

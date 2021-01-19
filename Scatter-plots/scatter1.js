@@ -86,7 +86,7 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
     // Returns an object with two points, where each point is an object with an x and y coordinate
     // Source: https://bl.ocks.org/HarryStevens/be559bed98d662f69e68fc8a7e0ad097
 
-      function calcLinear(data, x, y, minX, minY, cssSelector){
+      function calcLinear(data, x, y, minX, maxX, cssSelector){
         /////////
         //SLOPE//
         /////////
@@ -116,7 +116,7 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
           sum = sum + parseFloat(pt.mult);
           xSum = xSum + parseFloat(pt.varX);
           ySum = ySum + parseFloat(pt.varY);
-          sumSq = sumSq + (parseFloat(pt.varX) * parseFloat(pt.varY));
+          sumSq = sumSq + (parseFloat(pt.varX) * parseFloat(pt.varX));
         });
         var a = sum * n;
         var b = xSum * ySum;
@@ -143,25 +143,23 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
         var b = (e - f) / n;
 
         // Print the equation below the chart
-        document.querySelectorAll(cssSelector + " .equation")[0].innerHTML = "y = " + m + "x + " + b;
-        document.querySelectorAll(cssSelector + " .equation")[1].innerHTML = "x = ( y - " + b + " ) / " + m;
 
         // // return an object of two points
         // // each point is an object with an x and y coordinate
         return {
           ptA : {
             x: minX,
-            y: m * minX + b
+            y: (m * minX) + b
           },
           ptB : {
-            y: minY,
-            x: (minY - b) / m
+            x: maxX,
+            y: (m * maxX) + b
           }
         }
       }
 
     // see above for an explanation of the calcLinear function
-    var lg = calcLinear(data, varX, varY, d3.min(data, function(d){ return d[varX]}), d3.min(data, function(d){ return d[varY]}), cssSelector);
+    var lg = calcLinear(data, varX, varY, d3.min(data, function(d){ return d[varX]}), d3.max(data, function(d){ return d[varX]}), cssSelector);
 
     svg.append("line")
         .attr("class", "regression")
@@ -173,7 +171,7 @@ function drawScatterPlot(dataFile, cssSelector, varX, varY, lowX, highX, lowY, h
     })
 }
 
-drawScatterPlot("code/total.csv", "#scatter1", "excess_deaths_per_100k_wa", "Stringency", -0.5, 7, 20, 80, "Oxford Stringency Index", 0)
-drawScatterPlot("code/total.csv", "#scatter2", "excess_deaths_per_100k_wa", "Per_capita_Real_GDP", -0.5, 7, 10000, 200000, "Real GDP pc", 3)
-drawScatterPlot("code/total.csv", "#scatter3", "excess_deaths_per_100k_wa", "Mobility_a", -0.5, 7, -60, 0, "Google's Change in Mobility Index", 0)
-drawScatterPlot("code/total.csv", "#scatter4", "excess_deaths_per_100k_wa", "Density", -0.5, 7, 0, 1600, "Population Density per Mile Sq", 0)
+drawScatterPlot("code-and-data/totalNoDC.csv", "#scatter1", "excess_deaths_per_100k_wa", "Stringency", -1, 7, 20, 80, "Oxford Stringency Index", 0)
+// drawScatterPlot("code-and-data/total.csv", "#scatter2", "excess_deaths_per_100k_wa", "Per_capita_Real_GDP", -0.5, 7, 10000, 200000, "Real GDP pc", 3)
+// drawScatterPlot("code-and-data/total.csv", "#scatter3", "excess_deaths_per_100k_wa", "Mobility_a", -0.5, 7, -60, 0, "Google's Change in Mobility Index", 0)
+drawScatterPlot("code-and-data/totalNoDC.csv", "#scatter4", "excess_deaths_per_100k_wa", "Density", -1, 7, 0, 1600, "Population Density per Sq Mile", 0)
