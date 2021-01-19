@@ -6,15 +6,20 @@
     <div class="topnavother">
         <a href='index.html'>Home</a>
         <a class="active" href='associations.html'>Possible Causes</a>
-        <a href='team.html'>Our Team</a>
+        <a href='team.html'>About Us</a>
     </div>
 
+
     <body>
+
+        <div class="headerspace10"> </div>
+
         <h1 style="text-align:center"><br>Associations of Excess Mortality with Policy and Socioeconomic Variables</h1>
 
-    <link href="Scatter-plots/scatter-style.css" rel="stylesheet" type="text/css"></link>
+        <link href="Scatter-plots/scatter-style.css" rel="stylesheet" type="text/css"></link>
 
-        <h1 style="text-align:center"> <br>Excess Deaths and Strictness of Measures (Stringency Index)</h1>
+        <h2 style="text-align:center"> <br>Excess Deaths and Strictness of Measures (Stringency Index)</h1>
+
         <p>Oxford's COVID-19 Government Response Tracker aims to <b>track and compare worldwide government responses to the coronavirus with a comparable metric</b>. The index collects information on common policy responses and score the stringency of each measure through a comparison to normal times. The scores compount into an overall COVID-19 Government Response Stringency Index.</p> 
 
         <p>This composite measure is a simple additive score of the seven indicators, rescaled to 0 to 100. A score of 0 would be policies in normal times and 100 is the highest level of restrictions. <b>This measure is for comparative purposes only and should not be interpreted as a rating of the appropriateness or effectiveness of a country's response</b>. More information about the index can be found <a href ="https://covidtracker.bsg.ox.ac.uk/">here.</a></p>
@@ -25,10 +30,12 @@
 
         <!-- Create a div where the graph will take place -->
         <h4 style="text-align:center">A higher level of stringency in pandemic response policies is weakly associated with lower average weekly excess deaths</h4>
+
         <h5 style="text-align:center">Average weekly Excess Deaths vs. Stringency Index (Avg. for 2020)</h5>
 
         <div style="text-align:center" id="scatter1">
         </div>
+        
         <p style="text-align:center"> Source: <a href ="https://raw.githubusercontent.com/TheEconomist/covid-19-excess-deaths-tracker/master/output-data/excess-deaths/united_states_excess_deaths.csv">The Economist</a> & <a href ="https://raw.githubusercontent.com/OxCGRT/USA-covid-policy/master/data/OxCGRT_US_latest.csv">Oxford COVID-19 Government Response Tracker</a>, Visualization: <a href ="https://www.d3-graph-gallery.com/graph/scatter_basic.html">D3</a></p>
 
         <!-- We exclude the correlations with GDP pc, and Google Mobility Index because they weren't statistically significant or clear.  -->
@@ -50,7 +57,8 @@
           <div class="equation">b</div>
         </div> -->
 
-        <h1 style="text-align:center"> <br>Excess Deaths and Population Density</h1>
+        <h2 style="text-align:center"> <br>Excess Deaths and Population Density</h2>
+        
         <p>Since SARS-CoV2 (the virus that causes COVID-19) is an airborne disease, a state with a greater population density (people per squared mile) is more likely to increase excess deaths because crowded spaces increase transmission, hospitals become overcrowded faster. Thus, more urban states are more likely to have a higher level of excess deaths than more rural states. The source of population density data by state is the US Census bureau.</p>
 
         <p><b>How to read the graph:</b> The graph below shows the association between population density and the <i>average</i> weekly excess deaths per 100k since the start of the pandemic. In the chart, states like New Jersey, Rhode Island, Massachusetts, with relatively higher population densities, have higher average weekly excess mortality than more rural states like Arkansas and Wyoming. On the other hand, rural states like the Dakotas (SD & ND) and Mississippi have lower population densities but higher excess deaths.</p> 

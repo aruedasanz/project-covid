@@ -1,8 +1,9 @@
 /* Set background */
 html {
   background-color: white;
-  width: 100%;
+  width: 50%;
   font-family: Georgia, sans-serif;
+  margin: 0 auto;
 
 }
 
@@ -37,7 +38,7 @@ img {
   margin-top: -45px;
 }
 
-.topnav a:hover {
+.topnav a.hover {
   border-bottom: 3px solid gray; 
 }
 
@@ -63,8 +64,8 @@ img {
   clear: none;
 }
 
-*.topnavother a:hover {
-  border-bottom: 3px solid gray;*
+.topnavother a:hover {
+  border-bottom: 3px solid gray;
 }
 
 .topnavother a.active {
@@ -104,4 +105,22 @@ img {
   padding-right: 30px;
   padding-bottom: 10px;
   padding-left: 80px;
+}
+
+.headerspace10{
+
+  padding-top: 10px;
+}
+
+.space20{
+
+  padding-top: 20px;
+}
+
+/*paragraph style*/
+
+p {
+
+  text-align: justify;
+  text-justify: inter-word;
 }
