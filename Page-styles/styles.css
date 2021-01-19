@@ -1,15 +1,16 @@
 /* Set background */
 html {
   background-color: white;
-  width: 50%;
+  width: 100%;
   font-family: Georgia, sans-serif;
-  margin: 0 auto;
+  
 
 }
 
 /*set body of the site */
 body {
-  width: 100%;
+  width: 50%;
+  margin: 0 auto;
 }
 
 img {
@@ -84,6 +85,7 @@ img {
 /*footer*/
 
 .footerbar {
+  font-family:Georgia;
   width: 100% !important;  
   max-width: 100% !important;
   min-width: 100% !important;
