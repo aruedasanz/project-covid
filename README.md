@@ -7,5 +7,5 @@ The charts included in the site were generated from various datasets. Those data
 
 Link to The Economist’s data: https://raw.githubusercontent.com/TheEconomist/covid-19-excess-deaths-tracker/master/output-data/excess-deaths/united_states_excess_deaths.csv
 
-Link to Oxfod Data: https://raw.githubusercontent.com/OxCGRT/USA-covid-policy/master/data/OxCGRT_US_latest.csv
+Link to Oxford Data: https://raw.githubusercontent.com/OxCGRT/USA-covid-policy/master/data/OxCGRT_US_latest.csv
 
